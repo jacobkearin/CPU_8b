@@ -13,8 +13,6 @@
 import threading
 import time
 
-path = ""
-
 addout = ""
 adcout = ""
 subout = ""
