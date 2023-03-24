@@ -12,9 +12,7 @@
 // Description: 
 //          8-bit ALU with 16 operations designed for use in the my "CPU from scratch" in 
 //          fulfilment of senior design project at Dunwoody College of Technology
-//      
-//          Includes automated test bench with parts taken from "automated test benches" 
-//          module found at https://github.com/jacobkearin/SchoolProjects/tree/main/EENG-2131
+//          
 //      
 // Dependencies: 
 // 
