@@ -1,0 +1,32 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a100tcsg324-1",
+      "gen_directory": "../../../../memory_testing.gen/sources_1/bd/ROM_test",
+      "name": "ROM_test",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2022.2"
+    },
+    "design_tree": {
+      "dist_mem_gen_0": ""
+    },
+    "components": {
+      "dist_mem_gen_0": {
+        "vlnv": "xilinx.com:ip:dist_mem_gen:8.0",
+        "xci_name": "ROM_test_dist_mem_gen_0_0",
+        "xci_path": "ip\\ROM_test_dist_mem_gen_0_0\\ROM_test_dist_mem_gen_0_0.xci",
+        "inst_hier_path": "dist_mem_gen_0",
+        "parameters": {
+          "depth": {
+            "value": "1024"
+          },
+          "memory_type": {
+            "value": "rom"
+          }
+        }
+      }
+    }
+  }
+}
