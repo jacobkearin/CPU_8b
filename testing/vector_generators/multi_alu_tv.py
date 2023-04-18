@@ -4,11 +4,10 @@
 # post-threading: 8 minutes (i7-10750 @ 2.6Ghz)
 
 # this might be the most inefficient program i've ever written
-# author (unfortunately): Jacob Kearin
+# author: Jacob Kearin
 
 # output text file format: aaaaaaaa_bbbbbbbb_ssss_ci_co_oooooooo_zo (without underscores; ci, co, zo are 1 bit) 
 
-# update output path at line 228
 
 import threading
 import time
@@ -141,47 +140,48 @@ def single():
     for a in range (256):
         astr = f'{a:08b}'
         for ci in range (2):
+            
             #LSL, 0000
             if ((a == 0)|(a == 1<<7)): 
                 zo = 1
             else: zo = 0
-            singleout = singleout + astr + "00000000" + "0000" + str(ci) + astr + "0" + str(zo) + "\n"
+            singleout = singleout + "00000000" + astr + "0000" + str(ci) + astr + "0" + str(zo) + "\n"
             
             #ROL, 0001
             if (a == 0): 
                 zo = 1
             else: zo = 0
-            singleout = singleout + astr + "00000000" + "0001" + str(ci) + str(ci) + astr[1:] + astr[0] + str(zo) + "\n"
+            singleout = singleout + "00000000" + astr + "0001" + str(ci) + str(ci) + astr[1:] + astr[0] + str(zo) + "\n"
             
             #LSR, 0010
             if (a <= 1): 
                 zo = 1
             else: zo = 0
-            singleout = singleout + astr + "00000000" + "0010" + str(ci) + astr[-1] + "0" + astr[:-1] + str(zo) + "\n"
+            singleout = singleout + "00000000" + astr + "0010" + str(ci) + astr[-1] + "0" + astr[:-1] + str(zo) + "\n"
 
             #ROR, 0011
             if (a == 0): 
                 zo = 1
             else: zo = 0
-            singleout = singleout + astr + "00000000" + "0011" + str(ci) + str(ci) + astr[-1] + astr[:-1] + str(zo) + "\n"
+            singleout = singleout + "00000000" + astr + "0011" + str(ci) + str(ci) + astr[-1] + astr[:-1] + str(zo) + "\n"
             
             #2C, 1000
             if (a == 0): 
                 zo = 1
             else: zo = 0
-            singleout = singleout + astr + "00000000" + "1000" + str(ci) + (str(bin((256-a))[2:].zfill(9))) + str(zo) + "\n"
+            singleout = singleout + "00000000" + astr + "1000" + str(ci) + (str(bin((256-a))[2:].zfill(9))) + str(zo) + "\n"
             
             #1C, 1001
             if (a == 255): 
                 zo = 1
             else: zo = 0
-            singleout = singleout + astr + "00000000" + "1001" + str(ci) + str(ci) + (str(bin((255-a))[2:].zfill(8))) + str(zo) + "\n"
+            singleout = singleout + "00000000" + astr + "1001" + str(ci) + str(ci) + (str(bin((255-a))[2:].zfill(8))) + str(zo) + "\n"
             
             #INC, 1101
             if (a == 255): 
                 zo = 1
             else: zo = 0
-            singleout = singleout + astr + "00000000" + "1101" + str(ci) + (str(bin((a+1))[2:].zfill(9))) + str(zo) + "\n"
+            singleout = singleout + "00000000" + astr + "1101" + str(ci) + (str(bin((a+1))[2:].zfill(9))) + str(zo) + "\n"
             
             #DEC, 1110
             if (a == 1): 
@@ -191,7 +191,7 @@ def single():
                 decout = 255
             else:
                 decout = a-1
-            singleout = singleout + astr + "00000000" + "1110" + str(ci) + str(ci) + (str(bin((decout))[2:].zfill(8))) + str(zo) + "\n"
+            singleout = singleout + "00000000" + astr + "1110" + str(ci) + str(ci) + (str(bin((decout))[2:].zfill(8))) + str(zo) + "\n"
     print("single complete")      
 
 # threads
@@ -225,7 +225,7 @@ t8.join()
 
 finalout = addout + adcout + subout + sbcout + andout + orout + xorout + singleout
 
-print(finalout, file=open(r"C:\PATH\alu_testvectors.txt", "x"))     # update PATH, 
+print(finalout, file=open(r"C:\Users\keajacm\Documents\_School\EENG\senior_design\alu_testvectors.txt", "x"))     # update PATH
 #  r"..." for printing raw text output to file 
 
 endtime = time.process_time()
