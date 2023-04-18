@@ -33,7 +33,7 @@ module data_write_bus(Op, ALUin, RAMin, GPRin, RAMout, GPRout, PCout, GPRwe, RAM
     output reg RAMwe, GPRwe, PCwe;
     
     wire [9:0] opdata10;
-    wire [9:0] opdata8;
+    wire [7:0] opdata8;
     wire [2:0] opcond;
         
     parameter ramST = 3'b101;
