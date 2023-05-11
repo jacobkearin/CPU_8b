@@ -1,0 +1,33 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a100tcsg324-1",
+      "gen_directory": "../../../../CPU_controller.gen/sources_1/bd/PROGMEM",
+      "name": "PROGMEM",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2022.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "PROGMEM": ""
+    },
+    "components": {
+      "PROGMEM": {
+        "vlnv": "xilinx.com:ip:dist_mem_gen:8.0",
+        "xci_name": "PROGMEM_dist_mem_gen_0_0",
+        "xci_path": "ip\\PROGMEM_dist_mem_gen_0_0\\PROGMEM_dist_mem_gen_0_0.xci",
+        "inst_hier_path": "PROGMEM",
+        "parameters": {
+          "depth": {
+            "value": "1024"
+          },
+          "memory_type": {
+            "value": "rom"
+          }
+        }
+      }
+    }
+  }
+}

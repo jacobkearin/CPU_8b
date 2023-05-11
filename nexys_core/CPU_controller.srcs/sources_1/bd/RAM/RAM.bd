@@ -1,0 +1,47 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a100tcsg324-1",
+      "gen_directory": "../../../../CPU_controller.gen/sources_1/bd/RAM",
+      "name": "RAM",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2022.2"
+    },
+    "design_tree": {
+      "RAM_8x256": ""
+    },
+    "components": {
+      "RAM_8x256": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "RAM_blk_mem_gen_0_0",
+        "xci_path": "ip\\RAM_blk_mem_gen_0_0\\RAM_blk_mem_gen_0_0.xci",
+        "inst_hier_path": "RAM_8x256",
+        "parameters": {
+          "Enable_A": {
+            "value": "Always_Enabled"
+          },
+          "Enable_B": {
+            "value": "Always_Enabled"
+          },
+          "Memory_Type": {
+            "value": "True_Dual_Port_RAM"
+          },
+          "Operating_Mode_A": {
+            "value": "WRITE_FIRST"
+          },
+          "Write_Depth_A": {
+            "value": "256"
+          },
+          "Write_Width_A": {
+            "value": "8"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      }
+    }
+  }
+}
