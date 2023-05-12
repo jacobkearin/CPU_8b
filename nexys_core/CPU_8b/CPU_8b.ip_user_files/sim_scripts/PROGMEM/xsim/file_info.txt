@@ -1,0 +1,2 @@
+PROGMEM.v,verilog,xil_defaultlib,../../../../CPU_8b.gen/sources_1/ip/PROGMEM/sim/PROGMEM.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

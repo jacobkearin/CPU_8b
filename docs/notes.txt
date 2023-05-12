@@ -1,0 +1,192 @@
+cpu operations necessary:
+	store				100ddddddddrrrrr	d(ram) = r	
+	load from storage	101rrrrrdddddddd	r = d(ram)	
+	load immediate		110dddddkkkkkkkk	d <- k		
+	????				111dddddkkkkkkkk	
+	
+	NOP					000000xxxxxxxxxx
+	jump				000001pppppppppp	PC = p
+	branch if zero?		000010pppppppppp	if Z then PC <- p	
+	branch if carry?	000011pppppppppp	if C then PC <- p	
+	LSL					000100dddddrrrrr	C <- b7 - - - - - - b0 <- 0		*make sure you can use the same d and r if desired
+	ROL					000101dddddrrrrr	b0 <- b7 - - - - - - b0			*
+	LSR					000110dddddrrrrr	0 -> b7 - - - - - - b0 -> C		*
+	ROR					000111dddddrrrrr	b0 -> b7 - - - - - - b0			*
+	add					001000rrrrrRRRRR	r = r + R
+	addc				001001rrrrrRRRRR	r = r + R + C
+	sub					001010rrrrrRRRRR	r = r - R
+	subc				001011rrrrrRRRRR	r = r - R - C
+	compare				001100rrrrrRRRRR	if r = R then Z = 1 else Z = 0 (do a subtraction without storing?)
+	???					001101dddddrrrrr	
+	1s complement		001110dddddrrrrr	d = !r		*	
+	???					001111dddddrrrrr	
+	move/copy			010000dddddrrrrr	d = r		*
+	AND					010001dddddrrrrr	d = d && r	*
+	OR					010010dddddrrrrr	d = d || r	*
+	XOR???				010011dddddrrrrr	d = d ^ r	*
+	???					010100 - 011111		open
+	
+	
+	Status Register		xxxxTICZ			Timer Enable, Interrupt Enable, Carry, Zero
+	
+	dedicate PMOD A-D as 4 ram locations?
+	
+	
+	don't worry about signage oeprations for now
+	
+	think about interrupts as being an option? 
+	
+	status register = r0 - Carry, Zero, interrupt enable?, maybe a timer interrupt?
+	
+	possibly a dedicated external timer function with interrupt function? 
+		register to define the speed of an external clock function
+		register to define how many cycles before an interrupt trigger is set?
+	
+	
+	program can maybe be pre-loaded into the block created by the memory IP?
+	
+	256 ram space
+	1024 program space
+	
+	if 1 then 3-bit opcode			(non ALU? store, load, ldi)?
+	if 0 then 6-bit opcode			(ALU)
+	all zeros is NOP?				
+	
+hardware:
+	ALU
+	ram
+	gpr's
+	program rom
+	status register?
+	program counter
+	
+	
+	
+	
+	figure out IP blocks for ROM file - to input instructions - decide on ram?
+	decide on instruction sets, design the 8-bit ALU - 
+	working memory (data registers, RAM?, ROM?) - how large?
+	controls
+	datapath
+	IO	
+	working with periferals?
+	
+	possibly use flash memory for program instructions - mayube usb? maybe front switches and manually set them??
+	
+	initialize in "stopped" mode, and wait for a start or step command?
+	
+	if manual loading - all 16 switches used
+		use buttons for: 
+			start
+			stop
+			step
+			load
+			clear? reset?
+			
+	specs:
+		32 8-bit GPR's
+		16 bit opcodes (list tbd)
+		maybe 256*8 ram?
+		harvard architecture
+	
+output - use previous VGA output and display:
+	register values
+	program counter
+	maybe instruction list?
+	other values - pins, modes, etc
+	
+	
+input - maybe based on a switch - either flash rom or 8 bit switches with an execute button
+	possibly include a "turbo button" to have fast clock or slow clock?
+	possibly use one of the buttons as a way to step through one instruction at a time?
+	
+
+likely harvard architechture
+opcode length - 16 bits? like AVR?
+
+in CPU:
+	data registers - 32?  8-bit registers
+	address registers - store data or address info??
+	instruction registers - store instructions
+	program counter
+
+instruction address register:
+	needs to be able to increment/decrement
+	needs to be able to have a specific value set
+	needs to be able to reset
+
+RAM:
+	maybe 256x8 to make it easy
+	takes an 8 bit input address, a w/r bit and either reads or writes the remaining 8 bits?
+
+JOURNAL:
+
+2/6: 	presentation given, feedback - detail resoning behind design decisions in milestone 2?
+
+2/7: 	nothing - homework
+
+2/8: 	nothing
+
+2/13: 	completed milestone 1 - got the nexys board working in vivado with my Basys-3 clock program
+
+got complacent with logging
+
+2/27: 	lots of development with opcodes to be used
+
+3/1: 	worked with matthew abit to hone some opcode details. worked out some possibilities with I/O stuff decided status register would be one of the GPR's to make it easy to manually set and clear bits
+
+3/7:	worked on a set of design specification documents for review with matthew
+
+3/8:	began writing alu, worked on design specs
+
+3/9:	decided to switch to SystemVerilog for project, continued work on ALU design, began test setup for ALU
+
+3/10: 	finished ALU programming, testing
+
+3/13: 	began work on some intermediary logic and plans
+
+Spring Break: looked into Xilinx memory IP blocks
+
+3/27: 	started ram and rom blocks with Xilinx IP, midterm design review complete
+
+4/5: 	been working on other classes a lot, havent made much progress. more to come.
+
+4/14:	more progress on controls. lots of stuff done on mux/demuxing with opcode stuff
+
+4/17:	adjusted status register plan to be dedicated registers instead of R0
+
+4/18:	started data write bus controls, refactored opcodes to mesh ALU writes with gpr/ram writes
+
+4/19:	continued work on controls. Idea for future: implement a second ALU for single register operations: free up 
+	opcode space, and possibly allow fixing the confusing out-of-order registers in the opcodes (unless I write an assembler)
+
+5/8:	missed some days of updates
+
+5/12:	core is working properly in simulation. kinks to work out in nexys implementation. I/O problems
+
+
+
+
+test_asm_
+
+0	NOP
+1	NOP
+2	LDI R3 0x03
+3	LDI R4 0x03
+4	LSL R4 R4
+5	AND R3 R4
+6	ST 0xfe R3
+7	LD 0xfa R5
+8	OR R3 R5
+9	ST 0xfb R5
+10	NOP
+11	NOP
+12	NOP
+13	NOP
+14	NOP
+15 JMP 7
+
+
+
+
+

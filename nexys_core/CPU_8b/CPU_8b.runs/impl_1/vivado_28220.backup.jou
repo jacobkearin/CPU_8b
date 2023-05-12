@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri May 12 17:10:58 2023
+# Process ID: 28220
+# Current directory: C:/Users/keajacm/Documents/repositories/CPU_8b/nexys_core/CPU_8b/CPU_8b.runs/impl_1
+# Command line: vivado.exe -log nexys_core.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source nexys_core.tcl -notrace
+# Log file: C:/Users/keajacm/Documents/repositories/CPU_8b/nexys_core/CPU_8b/CPU_8b.runs/impl_1/nexys_core.vdi
+# Journal file: C:/Users/keajacm/Documents/repositories/CPU_8b/nexys_core/CPU_8b/CPU_8b.runs/impl_1\vivado.jou
+# Running On: 222115CD131314J, OS: Windows, CPU Frequency: 2592 MHz, CPU Physical cores: 6, Host memory: 34121 MB
+#-----------------------------------------------------------
+source nexys_core.tcl -notrace

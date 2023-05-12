@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../CPU_8b.gen/sources_1/ip/GPR/sim/GPR.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort
