@@ -3,6 +3,8 @@
 
 Work in progress - designed for implementation in Nexys-A7 100T
 
+Implementation sources in /nexys_core
+
 ## Opcodes list:
 
 ![image](https://github.com/jacobkearin/CPU_8b/assets/71102319/a7399b5a-a473-4e2a-b372-562b24d2949f)
