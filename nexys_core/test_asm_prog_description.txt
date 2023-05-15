@@ -1,0 +1,28 @@
+current implemented test program:
+
+0	NOP
+1	NOP
+2	LDI R3 0x03
+3	LDI R4 0x03
+4	LSL R4 R4
+5	AND R3 R4
+6	ST 0xfe R3
+7	LD 0xfa R5
+8	OR R3 R5
+9	ST 0xfb R5
+10	NOP
+11	NOP
+12	NOP
+13	NOP
+14	NOP
+15	NOP
+16	NOP
+17	NOP
+18	NOP
+19 	JMP 7
+
+
+
+
+radix = number base
+initialization vectors seperatated by spaces
