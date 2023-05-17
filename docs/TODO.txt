@@ -1,0 +1,13 @@
+todo:
+	-finish implementing set/clear bit instructions for c,z,i etc.
+
+bugs:
+	-i/o synchronizing timing
+
+new features to implement:
+	-data direction register for each i/o port
+	-interrupts
+	-timer modules
+
+other:
+	-build assembler
