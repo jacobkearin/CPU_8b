@@ -1,4 +1,4 @@
-cpu operations necessary:
+cpu operations necessary: (outdated)
 	store				100ddddddddrrrrr	d(ram) = r	
 	load from storage	101rrrrrdddddddd	r = d(ram)	
 	load immediate		110dddddkkkkkkkk	d <- k		
@@ -32,7 +32,7 @@ cpu operations necessary:
 	dedicate PMOD A-D as 4 ram locations?
 	
 	
-	don't worry about signage oeprations for now
+	don't worry about signage operations for now
 	
 	think about interrupts as being an option? 
 	
